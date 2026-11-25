@@ -330,6 +330,8 @@ function go(i, opts){
   const n = Math.max(0, Math.min(D.slides.length - 1, i|0));
   if (n === cur && !opts.force) { return; }
   const dir = n > cur ? 1 : -1;
+  const zd = $('#zoom-dialog');
+  if (zd && zd.open) zd.close();
   clearSpot(true);
   if (frames[cur]) {
     const old = frames[cur];
