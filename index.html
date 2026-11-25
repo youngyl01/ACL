@@ -294,6 +294,7 @@ function paint(){
   counter.textContent = (cur + 1) + ' / ' + D.slides.length;
   prog.style.width = ((cur + 1) / D.slides.length * 100) + '%';
   titleEl.textContent = s.title;
+  announcer.textContent = (cur + 1) + '장. ' + s.title;
   slide.classList.toggle('cover', cur === 0);
   slide.setAttribute('aria-label', (cur + 1) + '장. ' + s.title);
   [...chapBox.children].forEach(b => {
