@@ -425,6 +425,7 @@ function fitZoom(){
   const w = zv.clientWidth || 900;
   z = Math.min(w / nw, hh / nh);
   applyZoom();
+  zv.style.height = (window.innerWidth <= 860) ? Math.round(zi.clientHeight) + 'px' : '';
   zv.scrollLeft = Math.max(0, (zi.clientWidth - zv.clientWidth) / 2);
   zv.scrollTop = Math.max(0, (zi.clientHeight - zv.clientHeight) / 2);
 }
@@ -435,6 +436,7 @@ function applyZoom(){
   $('#zoom-level').textContent = Math.round(z * 100) + '%';
 }
 function zoomAt(factor, cx, cy){
+  if (window.innerWidth <= 860 && zv.style.height) { zv.style.height = ''; }
   const rect = zv.getBoundingClientRect();
   const px = (cx == null ? zv.clientWidth / 2 : cx - rect.left) + zv.scrollLeft;
   const py = (cy == null ? zv.clientHeight / 2 : cy - rect.top) + zv.scrollTop;
